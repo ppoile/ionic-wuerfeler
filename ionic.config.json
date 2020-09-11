@@ -1,5 +1,7 @@
 {
   "name": "Wuerfler",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
