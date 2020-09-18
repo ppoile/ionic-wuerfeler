@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
+import { IonRouterOutlet, LoadingController, Platform } from '@ionic/angular';
+import { Plugins } from '@capacitor/core';
 import { of, Subject, timer } from 'rxjs';
 import { delay, exhaustMap, flatMap, last, map, take, tap } from 'rxjs/operators';
+const { App } = Plugins;
 
 import { Cube } from './cube';
 
@@ -17,11 +19,25 @@ export class HomePage {
   cubeValueStyle: string;
   source: any;
 
-  constructor(public loadingController: LoadingController) {}
-
-  ngOnInit() {
+  constructor(
+    private loadingController: LoadingController,
+    private platform: Platform,
+    private routerOutlet: IonRouterOutlet,
+  ) {
+    this.platform.backButton.subscribeWithPriority(-1, () => {
+      if (!this.routerOutlet.canGoBack()) {
+        console.log('exiting...');
+        App.exitApp();
+      }
+      else {
+        console.log('cannot exit');
+      }
+    });
     this.cube = new Cube();
     this.setupStream();
+  }
+
+  ngOnInit() {
     this.source.next();
   }
 
