@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonRouterOutlet, LoadingController, Platform } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
 import { of, Subject, timer } from 'rxjs';
 import { delay, exhaustMap, flatMap, last, map, take, tap } from 'rxjs/operators';
 const { App } = Plugins;
@@ -23,6 +24,7 @@ export class HomePage {
     private loadingController: LoadingController,
     private platform: Platform,
     private routerOutlet: IonRouterOutlet,
+    private screenOrientation: ScreenOrientation,
   ) {
     this.platform.backButton.subscribeWithPriority(-1, () => {
       if (!this.routerOutlet.canGoBack()) {
@@ -33,6 +35,8 @@ export class HomePage {
         console.log('cannot exit');
       }
     });
+    this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    
     this.cube = new Cube();
     this.setupStream();
   }
