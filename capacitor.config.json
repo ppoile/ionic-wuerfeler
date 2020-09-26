@@ -1,5 +1,5 @@
 {
-  "appId": "io.ionic.starter",
+  "appId": "ch.daemeier-clan.ionic-wuerfeler",
   "appName": "Wuerfler",
   "bundledWebRuntime": false,
   "npmClient": "npm",
