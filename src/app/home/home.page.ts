@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonRouterOutlet, LoadingController, Platform } from '@ionic/angular';
 import { Plugins } from '@capacitor/core';
 import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
@@ -41,7 +41,7 @@ export class HomePage {
     this.setupStream();
   }
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.source.next();
   }
 
