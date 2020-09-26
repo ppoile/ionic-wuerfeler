@@ -1,6 +1,6 @@
 {
-  "appId": "ch.daemeier-clan.ionic-wuerfeler",
-  "appName": "Wuerfler",
+  "appId": "ch.daemeier_clan.ionic_wuerfeler",
+  "appName": "Wuerfeler",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
