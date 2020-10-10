@@ -44,3 +44,8 @@ ng serve
 
 Development for phone 
 ---------------------
+
+ionic cap add android
+ionic cap copy
+cordova-res android --skip-config --type icon --copy
+ionic cap open android
